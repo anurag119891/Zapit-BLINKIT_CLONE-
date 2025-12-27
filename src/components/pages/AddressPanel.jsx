@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import "../css/AddressPanel.css";
 
-const API_BASE_URL = "http://localhost:5000/api/user";
+const API_BASE_URL = "https://zapit-hl9x.onrender.com/api/user";
 
 export default function AddressPanel({ open, onClose, onSelectAddress }) {
   const [addresses, setAddresses] = useState([]);

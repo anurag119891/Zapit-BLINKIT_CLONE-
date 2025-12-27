@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { X, Smartphone, ShieldCheck, ArrowRight, Loader2 } from "lucide-react";
 import "../css/LoginModal.css";
 
-const API_BASE_URL = "http://localhost:5000/api/auth";
+const API_BASE_URL = "https://zapit-hl9x.onrender.com/api/auth";
 
 export default function LoginModal({
   open = true,

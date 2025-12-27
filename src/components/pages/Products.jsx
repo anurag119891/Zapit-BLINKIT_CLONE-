@@ -18,7 +18,7 @@ function Products() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/category");
+        const response = await fetch("https://zapit-hl9x.onrender.com/api/category");
         const result = await response.json();
         if (result.success) setCategories(result.categories);
       } catch (error) { console.error(error); }
@@ -30,13 +30,13 @@ function Products() {
   useEffect(() => {
     if (searchTerm) {
       setActiveCategory(null);
-      fetchProducts(`http://localhost:5000/api/products?search=${searchTerm}`);
+      fetchProducts(`https://zapit-hl9x.onrender.com/api/products?search=${searchTerm}`);
     } else if (categories.length > 0) {
       if (categoryId) {
         const match = categories.find((c) => c._id === categoryId);
         if (match) {
           setActiveCategory(match);
-          fetchProducts(`http://localhost:5000/api/products?categoryId=${categoryId}`);
+          fetchProducts(`https://zapit-hl9x.onrender.com/api/products?categoryId=${categoryId}`);
         }
       } else {
         const first = categories[0];
