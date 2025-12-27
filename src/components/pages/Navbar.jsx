@@ -5,6 +5,7 @@ import { RiArrowDownSLine, RiArrowRightSFill } from "react-icons/ri";
 import "../css/Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { User, X, CheckCircle } from "lucide-react";
+import { LuUserPlus } from "react-icons/lu";
 import LocationModal from "./LocationModal";
 import CartSidebar from "./CartSidebar";
 // import AdminAddModal from "./AdminAddModal";
@@ -344,7 +345,7 @@ const Navbar = ({ showLogin, setShowLogin, user, handleLogout }) => {
               onClick={() => setShowLogin(true)}
             >
               <span className="login-text-desktop">Login</span>
-              <User className="login-icon-mobile" size={20} />
+              <LuUserPlus className="login-icon-mobile" size={20} />
             </button>
           ) : (
             <div className="profile-container" ref={profileMenuRef}>
