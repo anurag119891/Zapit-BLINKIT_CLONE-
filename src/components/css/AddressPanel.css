@@ -1,0 +1,141 @@
+:root {
+  --primary-teal: #008080;
+  --bg-drawer: #f8fafc;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* --- Overlay & Drawer (Matches Cart/Orders) --- */
+.address-overlay-new {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.address-overlay-new.visible { opacity: 1; visibility: visible; }
+
+.address-drawer-new {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  background: var(--bg-drawer);
+  z-index: 2100;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+}
+.address-drawer-new.active { right: 0; }
+
+/* --- Content Layout --- */
+.drawer-content { flex: 1; overflow-y: auto; padding: 20px; }
+
+/* --- List View --- */
+.add-new-trigger {
+  width: 100%;
+  padding: 14px;
+  background: white;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  color: var(--primary-teal);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.2s;
+}
+.add-new-trigger:hover { background: #f0fdfa; border-color: var(--primary-teal); }
+
+.address-card-new {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #f1f5f9;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.address-card-new:hover { transform: translateY(-2px); border-color: var(--primary-teal); }
+
+.addr-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.addr-label-group { display: flex; align-items: center; gap: 6px; color: var(--primary-teal); }
+.addr-label-text { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.addr-actions { display: flex; gap: 12px; color: #94a3b8; }
+.addr-actions button { background: none; border: none; cursor: pointer; color: inherit; transition: 0.2s; }
+.addr-actions button:hover { color: var(--text-dark); }
+.text-red:hover { color: #ef4444 !important; }
+
+.addr-full-text { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+/* --- Form View --- */
+.form-section { margin-bottom: 20px; }
+.form-label { display: block; font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+
+.type-pills { display: flex; gap: 10px; }
+.type-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  background: white;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.type-pill.active { background: #eff6ff; border-color: var(--primary-teal); color: var(--primary-teal); }
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+.form-input:focus { border-color: var(--primary-teal); box-shadow: 0 0 0 4px rgba(0, 128, 128, 0.1); }
+.form-input.area { height: 80px; resize: none; }
+.has-error { border-color: #ef4444; }
+
+.form-row-2 { display: grid; grid-template-columns: 1.5fr 1fr; gap: 12px; }
+
+.submit-addr-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--primary-teal);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 128, 128, 0.2);
+}
+
+.back-circle { background: #f1f5f9; border: none; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; margin-right: 8px; }
+
+.error-text { color: #ef4444; font-size: 12px; margin-top: 4px; display: block; }
+.spinner { animation: rotate 1s linear infinite; }
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+@media (max-width: 480px) { .address-drawer-new { max-width: 100%; } }

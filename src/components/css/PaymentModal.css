@@ -1,0 +1,156 @@
+/* 1. The Overlay: Covers the whole screen */
+.payment-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Darkens the background */
+  backdrop-filter: blur(5px); /* Adds a modern frosted glass effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures it sits on top of everything */
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* 2. The Modal Container */
+.payment-modal {
+  background: #ffffff;
+  width: 90%;
+  max-width: 480px; /* Standard payment modal width */
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Clips children to border-radius */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 3. Header Section */
+.pm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.pm-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Close Button Reset & Styling */
+.pm-close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.pm-close-btn:hover {
+  background-color: #f5f5f5;
+  color: #333;
+  transform: rotate(90deg);
+}
+
+/* 4. Amount Display Section */
+.pm-amount {
+  background-color: #f9fafb;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: center;
+}
+
+.pm-amount .label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.pm-amount .value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #111827; /* Dark text for high contrast */
+  /* Optional: Use your brand color (e.g., green for success) */
+  /* color: #059669; */ 
+}
+
+/* 5. Body / Stripe Component Container */
+.pm-body {
+  padding: 24px;
+}
+
+/* Helps style the Stripe Element container if needed */
+.StripeElement {
+  background-color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s ease;
+}
+
+.StripeElement--focus {
+  border-color: #6366f1; /* Indigo focus color */
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+/* 6. Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 500px) {
+  .payment-modal {
+    width: 100%;
+    height: auto; /* Or 100% if you want full screen on mobile */
+    max-width: none;
+    border-radius: 20px 20px 0 0; /* Rounded top only */
+    position: absolute;
+    bottom: 0;
+    animation: slideUpMobile 0.3s ease-out;
+  }
+  
+  .payment-overlay {
+    align-items: flex-end; /* Aligns modal to bottom on mobile */
+  }
+
+  @keyframes slideUpMobile {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+}
