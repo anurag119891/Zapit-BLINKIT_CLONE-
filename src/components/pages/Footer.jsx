@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaFacebook, FaXTwitter } from "react-icons/fa6";
 import {
   FaFacebookF,
   FaTwitter,
@@ -34,8 +35,14 @@ const Footer = () => {
 
         {/* Right: Social Media Icons */}
         <div className="footer-social">
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-btn">
+          <a href="https://www.facebook.com/share/1DFtcYTU95/" target="_blank" rel="noreferrer" className="social-btn">
+            <FaFacebook />
+          </a>
+          <a href="https://www.instagram.com/anuragrai045" target="_blank" rel="noreferrer" className="social-btn">
             <FaInstagram />
+          </a>
+           <a href="https://x.com/AnuragRai119891" target="_blank" rel="noreferrer" className="social-btn">
+            <FaXTwitter />
           </a>
           <a href="https://www.linkedin.com/in/anurag-rai-0148a9292" target="_blank" rel="noreferrer" className="social-btn">
             <FaLinkedinIn />
